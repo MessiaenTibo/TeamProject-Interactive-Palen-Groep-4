@@ -49,28 +49,24 @@
     <main>
         <div>
             <div class="c-layout c-layout--gutter">
-                <header class="o-row">
-                    <div class="o-container" style="text-align: center;">
-                        <div style="text-align: left;">
-                            <div>
-                                <form action="./FormOne.html">
-                                    <input type="submit" name="Submit" id="submit" value="Start a game" style="height: 80px; width: 200px">
-                                </form>
-                            </div>
-                            <br>
-                            <div>
-                                <h2>information...</h2>
-                                <h3>Gamemodes</h3>
-                                <h4>Gamemode 1</h4>
-                                <p>Werking</p>
-                                <h4>Gamemode 2</h4>
-                                <p>Werking</p>
-                                <h4>Gamemode 3</h4>
-                                <p>Werking</p>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+                <form action="./FormTwo.html">
+                    <label for="players">Players</label>
+                    <select name="players" id="players">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                    </select>
+                    <br>
+                    <label for="gamemodes">Gamemode:</label>
+                    <select name="gamemodes" id="gamemodes">
+                        <option value="1">Gamemode 1</option>
+                        <option value="2">Gamemode 2</option>
+                        <option value="3">Gamemode 3</option>
+                    </select>
+                    <br>
+                    <input type="submit" name="Submit" id="submit" value="Next">
+                </form>
             </div>
         </div>
     </main>

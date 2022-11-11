@@ -58,6 +58,30 @@ const listenToClickKnopen = function()
             console.log("Game not started");
         }
     });
+    btnPlayer3.addEventListener('click',function()
+    {
+        if(gameStarted)
+        {
+            console.log("Player 3 clicked");
+            scorePlayer3.innerHTML = parseInt(scorePlayer3.innerHTML) + 1;
+        }
+        else
+        {
+            console.log("Game not started");
+        }
+    });
+    btnPlayer4.addEventListener('click',function()
+    {
+        if(gameStarted)
+        {
+            console.log("Player 4 clicked");
+            scorePlayer4.innerHTML = parseInt(scorePlayer4.innerHTML) + 1;
+        }
+        else
+        {
+            console.log("Game not started");
+        }
+    });
 }
 
 const toggleNav = function() {
@@ -83,8 +107,12 @@ const init = function () {
     btnStart = document.querySelector('.js-btn-start');
     btnPlayer1 = document.querySelector('.js-btn-player1');
     btnPlayer2 = document.querySelector('.js-btn-player2');
+    btnPlayer3 = document.querySelector('.js-btn-player3');
+    btnPlayer4 = document.querySelector('.js-btn-player4');
     scorePlayer1 = document.querySelector('.js-score-player1');
     scorePlayer2 = document.querySelector('.js-score-player2');
+    scorePlayer3 = document.querySelector('.js-score-player3');
+    scorePlayer4 = document.querySelector('.js-score-player4');
     placeHolderTimer = document.querySelector('.js-timer');
 
     // *** Handle User Interactions
