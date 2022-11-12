@@ -4,6 +4,8 @@ const ResetScore = function()
 {
     scorePlayer1.innerHTML = 0;
     scorePlayer2.innerHTML = 0;
+    scorePlayer3.innerHTML = 0;
+    scorePlayer4.innerHTML = 0;
 }
 
 const StartTimer = function()
@@ -20,6 +22,7 @@ const StartTimer = function()
             placeHolderTimer.innerHTML = "0";
             console.log("Time is up");
             gameStarted = false;
+            btnStart.disabled = false;
         }
     },100);
 }
@@ -33,6 +36,7 @@ const listenToClickKnopen = function()
         gameStarted = true;
         ResetScore();
         StartTimer();
+        btnStart.disabled = true;
     });
     btnPlayer1.addEventListener('click',function()
     {
