@@ -11,6 +11,8 @@
     --global-txt-color: rgb(75,76,96);
     --global-title-color: rgb(32,34,58);
     --global-background-color: rgb(245,246,250);
+    --global-background-footer-color: rgb(32,34,58);
+    --global-select-color: rgba(32, 34, 58, 0.700);
     --global-btn-txt-color: rgb(255,255,255);
     --global-btn-color: rgb(51,133,255);
     --global-btn-border-color: rgb(46,119,230);
@@ -19,6 +21,12 @@
     --global-btn-focus-color: rgb(51,133,255);
     --global-btn-focus-shadow-color: rgba(51,133,255,0.5);
     --global-btn-disabled-color: rgb(180,209,255);
+
+    /*Player*/
+    --global-player1-color: rgb(255, 0, 0);
+    --global-player2-color: rgb(0, 0, 255);
+    --global-player3-color: rgb(0, 255, 0);
+    --global-player4-color: rgb(255, 255, 0);
 }
 /*------------------------------------*\
 #GENERIC
@@ -110,12 +118,6 @@ form{
     /* background-color: white; */
 }
 
-svg{
-    display: inline;
-    height: 36px;
-    width: 100%;
-}
-
 .js-chart{
 }
 
@@ -127,7 +129,7 @@ svg{
 */
 
 ::selection {
-    background: #5051DB;
+    background: var(--global-select-color);
     color: white;
     text-shadow: none;
 }
@@ -156,19 +158,26 @@ img {
 h1 {
 color: var(--global-title-color);
     font-family: 'Times New Roman', Times, serif,;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     line-height: 40px;
     margin: 0 0 24px;
 }
 
-#water-drupple{
-    display: none;
+h2 {
+color: var(--global-title-color);
+font-size: 20px;
+font-weight: 900;
+line-height: 32px;
+margin: 0 0 6px;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 340px) {
     h1{
-        font-size: 30px;
+        font-size: 28px;
+    }
+    h2{
+        font-size: 24px;
     }
 }
 
@@ -176,20 +185,9 @@ color: var(--global-title-color);
     h1{
         font-size: 36px;
     }
-}
-
-@media (min-width: 576px) {
-    #water-drupple{
-        display: inline;
+    h2{
+        font-size: 28px;
     }
-}
-
-h2 {
-color: var(--global-title-color);
-font-size: 24px;
-font-weight: 900;
-line-height: 32px;
-margin: 0 0 6px;
 }
 
 h3 {
@@ -268,6 +266,8 @@ hr {
 
 a {
     transition: all .1s ease-in-out;
+    color: none;
+    text-decoration: none;
 }
 
 a:visited, /*LoVe befor Hate (visited en active voor hover en focus)*/
@@ -389,7 +389,7 @@ padding: 24px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 56.4em; /* 56.4 * 20px = 1128px */
+    max-width: 79.5em; /* 79.5 * 16px = 1272 */
 }
 
 /*
@@ -575,6 +575,37 @@ padding: 24px;
     /* Corrects inability to style clickable `input` types in iOS */
     -webkit-appearance: none;
 }
+
+/*
+  Object: Hide accessible
+  ---
+  Accessibly hide any element
+*/
+
+.o-hide-accessible {
+    position: absolute;
+    width: calc(1rem / var(--global-root-font-size));
+    height: calc(1rem / var(--global-root-font-size));
+    padding: 0;
+    margin: calc(-1rem / var(--global-root-font-size));
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  
+/*
+  Object: Disable accessible
+  ---
+    Accessibly disable any element
+*/
+
+.o-disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+  
 
 /*------------------------------------*\
 #COMPONENTS
@@ -889,6 +920,11 @@ padding: 24px;
     margin-bottom: 24px;
     width: 24px;
     height: 24px;
+}
+
+.c-nav-trigger:hover {
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .c-nav-trigger__svg {
@@ -1255,6 +1291,208 @@ color: var(--global-txt-color);
     box-shadow: 0px 3px 6px rgb(180, 180, 180), rgb(180, 180, 180) 0px 3px 6px inset;
 }
 
+/*
+    Component: grid gamemodes
+    ---
+    Grid of gamemodes
+*/
+.c-grid-gamemodes{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 24px;
+    margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+    .c-grid-gamemodes {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1440px) {
+    .c-grid-gamemodes {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+.c-card-gamemode{
+    background-color: #fff;
+    height: 240px;
+    width: 240px;
+}
+
+
+/*
+    Component: card svg
+    ---
+    cvg's inside a card
+*/
+.c-card-gamemode__svg{
+    height: 200px;
+    width: 240px;
+    display: block;
+}
+.c-card-gamemode__svg:hover {
+    cursor: pointer;
+    padding: 4px;
+}
+
+.c-card-gamemode__svg:hover + .c-card-gamemode__footer h2{
+    color: gold;
+    cursor: pointer;
+}
+
+
+/*
+    Component: card gamemode info
+    ---
+    info about the gamemode
+*/
+.c-card-gamemode-info__button{
+    height:34px;
+    width: 34px;
+    position: relative;
+    margin-bottom: -34px;
+    left: 206px;
+    cursor: pointer;
+}
+
+.c-card-gamemode-info__content{
+    height: 200px;
+    width: 240px;
+    padding: 26px 20px 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.c-card-gamemode-info__button:hover{
+    fill:gold;
+}
+
+.c-card-gamemode-info__svg{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/*
+    Component: card footer
+    ---
+    bottom of the card
+*/
+.c-card-gamemode__footer{
+    height: 40px;
+    background-color: var(--global-background-footer-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.c-card-gamemode__footer:hover h2{
+    color: gold;
+}
+
+
+.c-card-gamemode__footer h2{
+    color: white;
+}
+
+/*
+    Component: player grid
+    ---
+    grid of players
+*/
+.c-grid-players{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 24px;
+    margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+    .c-grid-players {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1440px) {
+    .c-grid-players {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+/*
+    Component: card player
+    ---
+    card with player info
+*/
+
+.c-card-player{
+    background-color: #fff;
+    height: 240px;
+    width: 240px;
+}
+
+.c-card-player__svg{
+    height: 200px;
+    width: 240px;
+    display: block;
+}
+
+.c-card-player__footer{
+    height: 40px;
+    background-color: var(--global-background-footer-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.c-card-player__Name{
+    color: white;
+    background-color: transparent;
+    border: none;
+    /*remove input texture when clicked*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Oxygen', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.c-card-player__Name::selection{
+    background-color: white;
+    color: var(--global-background-footer-color);
+}
+
+.c-card-player__Name:focus{
+    outline: none;
+}
+
+.c-player-1__svg{
+    fill: var(--global-player1-color);
+}
+
+.c-player-2__svg{
+    fill: var(--global-player2-color);
+}
+
+.c-player-3__svg{
+    fill: var(--global-player3-color);
+}
+
+.c-player-4__svg{
+    fill: var(--global-player4-color);
+}
 
 /*------------------------------------*\
 #UTILITIES
