@@ -62,7 +62,7 @@ body{
     position: relative;
 
     /*Background image*/
-    background-image: url(/Front-end/img/Background-Pentagon-animated.png);
+    background-image: url(../img/Background-Pentagon-Animated.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
