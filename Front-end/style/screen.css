@@ -13,6 +13,8 @@
     --global-background-color: rgb(245,246,250);
     --global-background-footer-color: rgb(32,34,58);
     --global-select-color: rgba(32, 34, 58, 0.700);
+    --global-focus-color: rgb(32,34,58);
+
     --global-btn-txt-color: rgb(255,255,255);
     --global-btn-color: rgb(51,133,255);
     --global-btn-border-color: rgb(46,119,230);
@@ -54,6 +56,13 @@ body{
     margin: 0;
     padding: 0;
     position: relative;
+
+    /*Background image*/
+    background-image: url(/Front-end/img/Background-Pentagon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
 }
 
 aside{
@@ -132,6 +141,12 @@ form{
     background: var(--global-select-color);
     color: white;
     text-shadow: none;
+}
+
+:focus {
+    outline-offset: 2px;
+    outline-color: var(--global-focus-color);
+    outline-width: 2px;
 }
 
 /*------------------------------------*\
@@ -266,7 +281,7 @@ hr {
 
 a {
     transition: all .1s ease-in-out;
-    color: none;
+    color: var(--global-txt-color);
     text-decoration: none;
 }
 
@@ -942,9 +957,9 @@ padding: 24px;
 }
 
 .c-nav__link {
-color: var(--global-txt-color);
+    color: var(--global-txt-color);
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 600;
     display: block;
     padding: 8px 0;
 }
@@ -986,7 +1001,9 @@ color: var(--global-txt-color);
     position: absolute;
     bottom: 0;
     left: 0;
-    transition: width 0.5s;
+    transition: width 0.5s ease-out;
+    background-color: var(--global-txt-color);
+
 }
 
 .c-nav__link:hover::after{
@@ -1001,7 +1018,8 @@ color: var(--global-txt-color);
     }
 
     .c-nav__link {
-        padding: 8px 16px;
+        margin: 8px 32px;
+        padding: 2px;
     }
 }
 
@@ -1303,6 +1321,20 @@ color: var(--global-txt-color);
     margin-bottom: 24px;
 }
 
+.c-card-gamemode{
+    background-color: #fff;
+    height: 240px;
+    width: 240px;
+}
+
+.c-card-info{
+    background-color: #fff;
+    height: 240px;
+    grid-column: span 1;
+    display: none;
+}
+
+
 @media (min-width: 768px) {
     .c-grid-gamemodes {
         grid-template-columns: 1fr 1fr;
@@ -1313,13 +1345,11 @@ color: var(--global-txt-color);
     .c-grid-gamemodes {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+    .c-card-info{
+        display: block;
+        grid-column: span 2;
+    }
 }
-.c-card-gamemode{
-    background-color: #fff;
-    height: 240px;
-    width: 240px;
-}
-
 
 /*
     Component: card svg
@@ -1375,6 +1405,8 @@ color: var(--global-txt-color);
     height: 100%;
     width: 100%;
 }
+
+
 
 /*
     Component: card footer
@@ -1493,6 +1525,71 @@ color: var(--global-txt-color);
 .c-player-4__svg{
     fill: var(--global-player4-color);
 }
+
+
+/*
+    Component: General card info
+    ---
+    card with general info
+*/
+
+.c-card-info{
+    background-color: #fff;
+    height: 240px;
+    width: 240px;
+    grid-column: span 1;
+    display: none;
+}
+
+.c-card-info-2{
+    background-color: #fff;
+    height: 240px;
+    grid-column: span 1;
+    display: none;
+}
+
+@media (min-width: 1440px) {
+    .c-card-info{
+        display: block;
+        grid-column: span 1;
+    }
+    .c-card-info-2{
+        display: block;
+        grid-column: span 2;
+    }
+}
+
+.c-card-info__content
+{
+    height: 200px;
+    width: 100%;
+    padding: 26px 20px 0 20px;
+}
+
+.c-card-info__text{
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.c-card-info__footer{
+    height: 40px;
+    background-color: var(--global-background-footer-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.c-card-info__footer:hover h2{
+    color: gold;
+}
+
+.c-card-info__footer h2{
+    color: white;
+}
+
+
 
 /*------------------------------------*\
 #UTILITIES
