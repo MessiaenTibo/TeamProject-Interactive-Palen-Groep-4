@@ -14,7 +14,8 @@
     --global-background-footer-color: rgb(32,34,58);
     --global-select-color: rgba(32, 34, 58, 0.700);
     --global-focus-color: rgb(32,34,58);
-
+    
+    /*Buttons*/
     --global-btn-txt-color: rgb(255,255,255);
     --global-btn-color: rgb(51,133,255);
     --global-btn-border-color: rgb(46,119,230);
@@ -23,6 +24,9 @@
     --global-btn-focus-color: rgb(51,133,255);
     --global-btn-focus-shadow-color: rgba(51,133,255,0.5);
     --global-btn-disabled-color: rgb(180,209,255);
+
+    /*Live*/
+    --global-live-color: rgb(255, 0, 0);
 
     /*Player*/
     --global-player1-color: rgb(255, 0, 0);
@@ -58,7 +62,7 @@ body{
     position: relative;
 
     /*Background image*/
-    background-image: url(/Front-end/img/Background-Pentagon.png);
+    background-image: url(/Front-end/img/Background-Pentagon-animated.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -311,7 +315,7 @@ a:focus {
 }
 
 .c-gamemodes{
-padding: 24px;
+    
 }
 
 .btn-cancel{
@@ -342,7 +346,6 @@ padding: 24px;
 /*------------------------------------*\
 #OBJECTS
 \*------------------------------------*/
-
 /*
     Objects: Row
     ---
@@ -1006,6 +1009,18 @@ padding: 24px;
 
 }
 
+.c-nav__link.u-live:after{
+    content: '';
+    color: var(--global-txt-color);
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease-out;
+    background-color: var(--global-live-color);
+}
+
 .c-nav__link:hover::after{
     width: 100%;
 }
@@ -1532,6 +1547,30 @@ padding: 24px;
     ---
     card with general info
 */
+.c-grid-info{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 24px;
+    margin-bottom: 24px;
+}
+
+.c-grid-info-title{
+    display: none;
+}
+
+.c-card-info__title{
+    color:white;
+}
+
+
+@media (min-width: 1440px) {
+    .c-grid-info {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .c-grid-info-title{
+        display: block;
+    }
+}
 
 .c-card-info{
     background-color: #fff;
@@ -1563,7 +1602,11 @@ padding: 24px;
 {
     height: 200px;
     width: 100%;
-    padding: 26px 20px 0 20px;
+    padding: 20px;
+}
+
+.c-card-info__content:hover + .c-card-info__footer h2{
+    color: gold;
 }
 
 .c-card-info__text{
@@ -1585,19 +1628,36 @@ padding: 24px;
     color: gold;
 }
 
-.c-card-info__footer h2{
-    color: white;
-}
-
 
 
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
+
+/*
+    Utilities: live
+    ---
+    Utility classes to put elements live
+*/
+.u-live{
+    color: var(--global-live-color)
+}
+
+
+/*
+    Utilities: padding
+    ---
+    Utility classes to put specific paddings onto elements
+*/
 .u-padding-top{
     padding-top: 8px;
 }
 
+/*
+    Utilities: inline
+    ---
+    Utility classes to put elements inline
+*/
 .u-inline{
     display: inline;
 }
