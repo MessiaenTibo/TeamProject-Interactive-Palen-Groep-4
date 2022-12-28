@@ -1748,7 +1748,7 @@ a:focus {
     pointer-events: none;
 }
 
-@media (min-width: 320px) {
+@media (min-width: 340px) {
     :root{
         --global-queue-font-size: 14px;
         --global-queue-title-font-size: 16px;
