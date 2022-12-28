@@ -1724,7 +1724,7 @@ a:focus {
 .c-card-queue-footer-page__input{
     font-size: var(--global-queue-font-size);
     height: calc(var(--global-queue-font-size) * 1.4);
-    width: calc(var(--global-queue-font-size) * 1.4);
+    width: calc(var(--global-queue-font-size) * 2.6);
     text-align: center;
     border: 1px solid;
 }
