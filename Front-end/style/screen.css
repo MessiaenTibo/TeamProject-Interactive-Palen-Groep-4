@@ -14,6 +14,9 @@
     --global-background-footer-color: rgb(32,34,58);
     --global-select-color: rgba(32, 34, 58, 0.700);
     --global-focus-color: rgb(32,34,58);
+
+    /*arrows*/
+    --global-arrow-color: rgb(32,34,58);
     
     /*Buttons*/
     --global-btn-txt-color: rgb(255,255,255);
@@ -33,6 +36,12 @@
     --global-player2-color: rgb(0, 0, 255);
     --global-player3-color: rgb(0, 255, 0);
     --global-player4-color: rgb(255, 255, 0);
+
+    /*queue*/
+    --global-queue-font-size: 10px;
+    --global-queue-title-font-size: 12px;
+    --global-queue-padding: 8px;
+    --global-queue-margin: 8px;
 }
 /*------------------------------------*\
 #GENERIC
@@ -71,6 +80,10 @@ body{
 
 aside{
     background-color: var(--global-background-color);
+}
+
+header{
+    margin-bottom: 24px;
 }
 
 *,
@@ -406,8 +419,7 @@ a:focus {
 .o-container {
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
-    max-width: 79.5em; /* 79.5 * 16px = 1272 */
+    max-width: 50em;
 }
 
 /*
@@ -1045,7 +1057,6 @@ a:focus {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 24px;
     /* justify-content: space-between; */
 }
 
@@ -1629,6 +1640,134 @@ a:focus {
 }
 
 
+/*
+    Component: queue
+    ---
+    queue of gamemodes
+*/
+.c-card-queue{
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: var(--global-queue-padding);
+}
+
+.c-card-queue__title{
+
+}
+
+
+.c-card-queue-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0px;
+    margin-bottom: 12px;
+}
+
+.c-card-queue-grid-row{
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    padding: var(--global-queue-padding);
+    border-bottom: 1px solid var(--global-background-color);
+}
+
+.c-card-queue-grid-row:not(.c-card-queue-grid-row__title):hover{
+    border-radius: 8px;
+    background-color: var(--global-background-color);
+}
+
+.c-card-queue-grid-row-item{
+    font-size: var(--global-queue-font-size);
+    font-weight: 400;
+    color: var(--global-txt-color);
+}
+
+.c-card-queue-grid-row-item__title{
+    font-size: var(--global-queue-title-font-size);
+    font-weight: 600;
+    color: var(--global-title-color);
+}
+
+.c-card-queue-footer{
+    background-color: var(--global-background-color);
+    padding: var(--global-queue-padding);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-card-queue-footer-left{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.c-card-queue-footer-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/*give padding-right to all childs of c-card-queue-footer-right*/
+.c-card-queue-footer-right > *{
+    margin-right: var(--global-queue-margin);
+}
+
+.c-card-queue-footer-page__text{
+    font-size: var(--global-queue-font-size);
+}
+
+.c-card-queue-footer-pages{
+    font-size: var(--global-queue-font-size);
+}
+
+.c-card-queue-footer-page__input{
+    font-size: var(--global-queue-font-size);
+    height: calc(var(--global-queue-font-size) * 1.4);
+    width: calc(var(--global-queue-font-size) * 1.4);
+    text-align: center;
+    border: 1px solid;
+}
+
+.c-card-queue-footer-page__arrow{
+    margin: 0 4px 0 0;
+    height: calc(var(--global-queue-font-size) * 1.4);
+    width: calc(var(--global-queue-font-size) * 1.4);
+    font-size: var(--global-queue-font-size);
+    border: 1px solid;
+    fill: var(--global-arrow-color);
+    cursor: pointer;
+}
+
+.c-card-queue-footer-page__arrow + .c-card-queue-footer-page__arrow{
+    margin-right: var(--global-queue-margin);
+}
+
+.c-card-queue-footer-page__arrow-disabled{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+@media (min-width: 400px) {
+    :root{
+        --global-queue-font-size: 14px;
+        --global-queue-title-font-size: 16px;
+
+        --global-queue-padding: 10px;
+        --global-queue-margin: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    :root{
+        --global-queue-font-size: 16px;
+        --global-queue-title-font-size: 18px;
+
+        --global-queue-padding: 12px;
+        --global-queue-margin: 12px;
+    }
+}
+
 
 /*------------------------------------*\
 #UTILITIES
@@ -1640,7 +1779,7 @@ a:focus {
     Utility classes to put elements live
 */
 .u-live{
-    color: var(--global-live-color)
+    color: var(--global-live-color);
 }
 
 
