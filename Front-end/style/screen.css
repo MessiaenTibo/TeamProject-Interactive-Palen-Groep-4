@@ -82,10 +82,6 @@ aside{
     background-color: var(--global-background-color);
 }
 
-header{
-    margin-bottom: 24px;
-}
-
 *,
 *:before,
 *:after {
@@ -2334,12 +2330,22 @@ footer{
     margin: 20px 50px;
 }
 
-main{
-    min-height: 90vh;
+header{
+    min-height: 12vh;
 }
 
-header{
-    min-height: 10vh;
+main{
+    min-height: 88vh;
+}
+
+
+@media (min-width: 460px){
+    header{
+        min-height: 15vh;
+    }
+    main{
+        min-height: 85vh;
+    }
 }
 
 
