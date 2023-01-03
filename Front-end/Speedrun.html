@@ -47,20 +47,27 @@
         </div>
     </header>
     <main>
-        <div>
-            <div class="c-layout c-layout--gutter">
-                <header class="o-row">
-                    <div class="o-container" style="text-align: center;">
-                        <div style="text-align: left;">
-                            <br>
-                            <div class="c-players">
-                                <h2>Speedrun</h2>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+        <section class="o-row">
+            <div class="o-container">
+                <div class="c-card-speedrun">
+                    <h2>Info</h2>
+                    <h3>What is "speedrun"?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum veritatis veniam maxime! Ex assumenda fuga vero molestiae ipsam earum amet neque, in facilis fugit at cum harum aperiam facere excepturi nesciunt mollitia dicta debitis quae sunt quos! Qui ipsum labore saepe, fugit ducimus nulla a ipsam tempore iusto explicabo illum?</p>
+                    <h2>Settings</h2>
+                    <h3><label for="username">Username:</label></h3>
+                    <input type="text" id="username" placeholder="Username" maxlength="8">
+                    <h3><label for="buttonGoal">Button goal:</label></h3>
+                    <input type="number" id="buttonGoal" placeholder="15" min="5" max="30">
+                    <h3><label for="difficulty">Difficulty:</label></h3>
+                    <select name="difficulty" id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                    <button>Create speedrun</button>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
     <aside class="c-mobile-nav">
         <div class="c-mobile-nav__bg"></div>

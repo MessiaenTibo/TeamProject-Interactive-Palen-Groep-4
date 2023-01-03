@@ -42,6 +42,13 @@
     --global-queue-title-font-size: 12px;
     --global-queue-padding: 8px;
     --global-queue-margin: 8px;
+
+    /*Game:Speedrun*/
+    --global-speedrun-font-size: 10px;
+    --global-speedrun-title-font-size: 16px;
+    --global-speedrun-subtitle-font-size: 14px;
+    --global-speedrun-margin: 8px;
+    --global-speedrun-padding: 8px;
 }
 /*------------------------------------*\
 #GENERIC
@@ -93,6 +100,10 @@ aside{
         font-size: 20px;
         line-height: 1.6;
     }
+}
+
+input{
+    outline: none;
 }
 
 input[type=submit],
@@ -1762,6 +1773,58 @@ a:focus {
         --global-queue-padding: 12px;
         --global-queue-margin: 12px;
     }
+}
+
+
+
+/*
+    Component: Speedrun
+    ---
+    Speedrun gamemode
+*/
+.c-card-speedrun{
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: var(--global-speedrun-padding);
+    margin-bottom: 24px;
+}
+
+.c-card-speedrun > h2{
+    font-size: var(--global-speedrun-title-font-size);
+    font-weight: 600;
+    color: var(--global-title-color);
+}
+
+.c-card-speedrun > h3{
+    font-size: var(--global-speedrun-subtitle-font-size);
+    line-height: var(--global-speedrun-subtitle-font-size);
+    font-weight: 400;
+    color: var(--global-title-color);
+    margin-bottom: var(--global-speedrun-margin);
+    padding-bottom: 0px;
+}
+
+.c-card-speedrun > h3 + *{
+    margin-bottom: calc(var(--global-speedrun-margin) * 2);
+}
+
+.c-card-speedrun > p{
+    font-size: var(--global-speedrun-font-size);
+    font-weight: 400;
+    color: var(--global-txt-color);
+}
+
+.c-card-speedrun > input{
+    padding: 2px;
+}
+
+.c-card-speedrun > button{
+    font-size: var(--global-speedrun-title-font-size);
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
 }
 
 
