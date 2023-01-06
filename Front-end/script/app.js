@@ -145,6 +145,21 @@ const HomePage = function(){
 }
 
 
+
+const checkFavicon = function(){
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.getElementById('faviconTag').href = "img/favicon–light.ico";
+    }
+    else
+    {
+        document.getElementById('faviconTag').href = "img/favicon-dark.ico";
+    }
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    checkFavicon();
+});
+
 const handleDataUI = function () {
     if(btn1VS1){
         HomePage();
@@ -158,6 +173,8 @@ const handleDataUI = function () {
 //#region ***  Init / DOMContentLoaded                  ***********
 const init = function () {
     console.log("DOM geladen");
+    // Favicon
+    checkFavicon();
 
     /*
     Page: Home
