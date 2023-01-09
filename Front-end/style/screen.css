@@ -19,14 +19,18 @@
     --global-arrow-color: rgb(32,34,58);
     
     /*Buttons*/
-    --global-btn-txt-color: rgb(255,255,255);
+    /* --global-btn-txt-color: rgb(255,255,255);
     --global-btn-color: rgb(51,133,255);
     --global-btn-border-color: rgb(46,119,230);
     --global-btn-pressed-color: rgb(46,119,230);
     --global-btn-hover-color: rgb(79,149,255);
     --global-btn-focus-color: rgb(51,133,255);
     --global-btn-focus-shadow-color: rgba(51,133,255,0.5);
-    --global-btn-disabled-color: rgb(180,209,255);
+    --global-btn-disabled-color: rgb(180,209,255); */
+    --global-btn-txt-color: rgb(255,255,255);
+    --global-btn-color: rgb(32,34,58);
+    --global-btn-color-2: rgb(41, 45, 85);
+    --global-btn-border-color: rgb(32,34,58);
 
     /*Live*/
     --global-live-color: rgb(255, 0, 0);
@@ -104,6 +108,7 @@ aside{
 
 input{
     outline: none;
+    max-width: 100%;
 }
 
 input[type=submit],
@@ -111,6 +116,7 @@ input[type=button],
 button{
     color: var(--global-btn-txt-color);
     background-color: var(--global-btn-color);
+    background: linear-gradient(to right,var(--global-btn-color), var(--global-btn-color-2));
     border: var(--global-btn-border-color) 1px solid;
     border-radius: 3px;
     height: 48px;
@@ -1796,7 +1802,7 @@ a:focus {
     color: var(--global-title-color);
 }
 
-.c-card-speedrun > h3{
+.c-card-speedrun > h3, .c-card-speedrun > div > h3{
     font-size: var(--global-speedrun-subtitle-font-size);
     line-height: var(--global-speedrun-subtitle-font-size);
     font-weight: 400;
@@ -1805,7 +1811,7 @@ a:focus {
     padding-bottom: 0px;
 }
 
-.c-card-speedrun > h3 + *{
+.c-card-speedrun > div > h3 + *{
     margin-bottom: calc(var(--global-speedrun-margin) * 2);
 }
 
@@ -1825,6 +1831,27 @@ a:focus {
     border-radius: 8px;
     padding: 8px 16px;
     cursor: pointer;
+}
+
+.c-card-speedrun-setting-username__title
+{
+    display: block;
+}
+
+.c-card-speedrun-setting-ButtonGoal__title
+{
+    display: inline-block;
+}
+
+.c-card-speedrun-setting-difficulty__title{
+    display: inline-block;
+}
+
+
+.c-card-speedrun-settings{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 8px;
 }
 
 
@@ -1858,6 +1885,15 @@ a:focus {
 */
 .u-inline{
     display: inline;
+}
+
+/*
+    Utilities: block
+    ---
+    Utility classes to put elements block
+*/
+.u-block{
+    display: block;
 }
 
 /*

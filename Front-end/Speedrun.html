@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/screen.css">
     <title>Interactive palen</title>
+    <!-- Favicon -->
+    <link rel="shortcute icon" type="image/png" href="img/favicon-dark.ico" id="faviconTag"/>
     <link rel="icon" href="/pictures/icon.svg">
     <script
       src="https://cdn.socket.io/4.4.1/socket.io.min.js"
@@ -54,16 +56,24 @@
                     <h3>What is "speedrun"?</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum veritatis veniam maxime! Ex assumenda fuga vero molestiae ipsam earum amet neque, in facilis fugit at cum harum aperiam facere excepturi nesciunt mollitia dicta debitis quae sunt quos! Qui ipsum labore saepe, fugit ducimus nulla a ipsam tempore iusto explicabo illum?</p>
                     <h2>Settings</h2>
-                    <h3><label for="username">Username:</label></h3>
-                    <input type="text" id="username" placeholder="Username" maxlength="8">
-                    <h3><label for="buttonGoal">Button goal:</label></h3>
-                    <input type="number" id="buttonGoal" placeholder="15" min="5" max="30">
-                    <h3><label for="difficulty">Difficulty:</label></h3>
-                    <select name="difficulty" id="difficulty">
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
+                    <div class="c-card-speedrun-settings">
+                        <div class="c-card-speedrun-setting-username">
+                            <h3 class="c-card-speedrun-setting-username__title"><label for="username">Username:</label></h3>
+                            <input type="text" id="username" placeholder="Username" maxlength="8">
+                        </div>
+                        <div class="c-card-speedrun-setting-ButtonGoal">
+                            <h3 class="c-card-speedrun-setting-ButtonGoal__title"><label for="buttonGoal">Button goal:</label></h3>
+                            <input type="number" id="buttonGoal" placeholder="15" min="5" max="30">
+                        </div>
+                        <div class="c-card-speedrun-setting-difficulty">
+                            <h3 class="c-card-speedrun-setting-difficulty__title"><label for="difficulty">Difficulty:</label></h3>
+                            <select name="difficulty" id="difficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
                     <button>Create speedrun</button>
                 </div>
             </div>
